@@ -1,0 +1,11 @@
+ru:
+  label_readme_position: "Расположение README"
+  label_display_position_none: "выключено"
+  label_display_position_top: "сверху"
+  label_display_position_middle: "посередине"
+  label_display_position_bottom: "снизу"
+  label_project_setting_title: "README для хранилища"
+  label_update_setting: "обновить"
+  label_default_view_status: "Отображение по умолчанию"
+  label_display_default_show: "показывать"
+  label_display_default_hide: "скрывать"

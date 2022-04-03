@@ -9,3 +9,4 @@ de:
   label_default_view_status: "Anzeigeverhalten"
   label_display_default_show: "zeigen"
   label_display_default_hide: "verstecken"
+  project_module_readme_at_repository: "Readme at Repository" 

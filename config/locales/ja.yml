@@ -9,3 +9,4 @@ ja:
   label_default_view_status: "Default view status"
   label_display_default_show: "show"
   label_display_default_hide: "hide"
+  project_module_readme_at_repository: "Readme at Repository" 

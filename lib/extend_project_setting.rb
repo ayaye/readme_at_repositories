@@ -1,8 +1,6 @@
 require_dependency 'projects_helper'
 
-module ExtendRarProjectsSetting
-  module RarProjectSettingExtension
-
+module ExtendProjectSetting
   def project_settings_tabs
     action = {
       :name => 'readme_at_repositories', 
@@ -15,9 +13,4 @@ module ExtendRarProjectsSetting
     tabs << action if User.current.allowed_to?(action, @project)
     return tabs
   end
-
-  end
 end
-
-ProjectsHelper.send(:prepend, ExtendRarProjectsSetting::RarProjectSettingExtension) unless ProjectsHelper.included_modules.include? ExtendRarProjectsSetting::RarProjectSettingExtension
-

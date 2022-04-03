@@ -13,8 +13,15 @@ class DisplayReadme < Redmine::Hook::ViewListener
 
     blk = repo_id ? lambda { |r| r.identifier == repo_id } : lambda { |r| r.is_default }
     repo = context[:project].repositories.find &blk
+    if not repo
+      return ''
+    end
 
     entry = repo.entry(path)
+    if not entry
+      return ''
+    end
+
     if not entry.is_dir?
       return ''
     end

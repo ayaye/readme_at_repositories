@@ -1,3 +1,4 @@
+<div id="readme_at_repo">
 <h2 id="toggle_readme_block"><a>README</a></h2>
 <div id="readme_at_repo_dir" class="wiki" <% if show == 0%>style="display: none;"<% end %>>
   <% if html.html_safe.respond_to?(:force_encoding) %>
@@ -6,6 +7,11 @@
     <%= html.html_safe %>
   <% end %>
 </div>
+</div>
+
+<% content_for(:header_tags) do %>
+  <%= stylesheet_link_tag('readme_at_repo', :plugin => 'readme_at_repositories') %>
+<% end %>
 
 <%= javascript_tag do %>		
 $(document).ready(function(){

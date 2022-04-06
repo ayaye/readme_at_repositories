@@ -1,26 +1,20 @@
-<div id="readme_at_repo">
-<h2 id="toggle_readme_block"><a>README</a></h2>
-<div id="readme_at_repo_dir" class="wiki" <% if show == 0%>style="display: none;"<% end %>>
-  <% if html.html_safe.respond_to?(:force_encoding) %>
-    <%= html.html_safe.force_encoding('UTF-8') %>
-  <% else %>
-    <%= html.html_safe %>
-  <% end %>
+<div id="readme_at_repo" style="background-color: #eee; border: 1px solid #E4E4E4; padding: 2px 10px;margin: 4px 0 10px;">
+  <h2 id="toggle_readme_block"><a>README</a></h2>
+  <div id="readme_at_repo_dir" class="wiki" <% if show == 0%>style="display: none;"<% end %>>
+    <% if html.html_safe.respond_to?(:force_encoding) %>
+      <%= html.html_safe.force_encoding('UTF-8') %>
+    <% else %>
+      <%= html.html_safe %>
+    <% end %>
+  </div>
 </div>
-</div>
-
-<% content_for(:header_tags) do %>
-  <%= stylesheet_link_tag('readme_at_repo', :plugin => 'readme_at_repositories') %>
-<% end %>
 
 <%= javascript_tag do %>		
 $(document).ready(function(){
   <% if position == 1 %>
-  $("#readme_at_repo_dir").insertAfter(".autoscroll:first")
-  $("#toggle_readme_block").insertAfter(".autoscroll:first")
+  $("#readme_at_repo").insertAfter(".autoscroll:first")
   <% elsif position == 2 %>
-  $("#toggle_readme_block").insertBefore(".other-formats:first")
-  $("#readme_at_repo_dir").insertBefore(".other-formats:first")
+  $("#readme_at_repo").insertBefore(".other-formats:first")
   <% end %>
   $("#toggle_readme_block").click(function(){
     $("#readme_at_repo_dir").toggle(500);

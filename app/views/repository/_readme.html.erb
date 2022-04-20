@@ -1,4 +1,4 @@
-<div id="readme_at_repo" style="background-color: #eee; border: 1px solid #E4E4E4; padding: 2px 5px; margin: 4px 0 10px; border-radius: 3px;">
+<div id="readme_at_repo" style="display: none; background-color: #eee; border: 1px solid #E4E4E4; padding: 2px 5px; margin: 4px 0 10px; border-radius: 3px;">
   <h2 id="toggle_readme_block" style="margin: 0;"><a>README</a></h2>
   <div id="readme_at_repo_dir" class="wiki" <% if show == 0%>style="display: none;"<% end %>>
     <% if html.html_safe.respond_to?(:force_encoding) %>
@@ -12,9 +12,19 @@
 <%= javascript_tag do %>		
 $(document).ready(function(){
   <% if position == 1 %>
-  $("#readme_at_repo").insertAfter(".autoscroll:first")
+  var elem = $(".autoscroll:first");
+  if (elem.length > 0) {
+    var readme = $("#readme_at_repo")
+    readme.insertAfter(elem);
+    readme.show();
+  }
   <% elsif position == 2 %>
-  $("#readme_at_repo").insertBefore(".other-formats:first")
+  var elem = $(".other-formats:first");
+  if (elem.length > 0) {
+    var readme = $("#readme_at_repo")
+    readme.insertBefore(elem);
+    readme.show();
+  }
   <% end %>
   $("#toggle_readme_block").click(function(){
     $("#readme_at_repo_dir").toggle(500);

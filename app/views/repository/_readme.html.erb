@@ -1,20 +1,36 @@
-<h2 id="toggle_readme_block"><a>README</a></h2>
-<div id="readme_at_repo_dir" class="wiki" <% if show == 0%>style="display: none;"<% end %>>
-  <% if html.html_safe.respond_to?(:force_encoding) %>
-    <%= html.html_safe.force_encoding('UTF-8') %>
-  <% else %>
-    <%= html.html_safe %>
-  <% end %>
+<div id="readme_at_repo" style="display: none; background-color: #E9ECEF; border: 1px solid #E4E4E4; padding: 2px 5px; margin: 4px 0 10px;">
+  <h2 id="toggle_readme_block" style="margin: 0;"><a>README</a></h2>
+  <div id="readme_at_repo_dir" class="wiki" <% if show == 0%>style="display: none;"<% end %>>
+    <% if html.html_safe.respond_to?(:force_encoding) %>
+      <%= html.html_safe.force_encoding('UTF-8') %>
+    <% else %>
+      <%= html.html_safe %>
+    <% end %>
+  </div>
 </div>
 
 <%= javascript_tag do %>		
 $(document).ready(function(){
-  <% if position == 1 %>
-  $("#readme_at_repo_dir").insertAfter(".autoscroll:first")
-  $("#toggle_readme_block").insertAfter(".autoscroll:first")
+  <% if position == 0 %>
+  var elem = $(".autoscroll:first");
+  if (elem.length > 0) {
+    var readme = $("#readme_at_repo")
+    readme.show();
+  }
+  <% elsif position == 1 %>
+  var elem = $(".autoscroll:first");
+  if (elem.length > 0) {
+    var readme = $("#readme_at_repo")
+    readme.insertAfter(elem);
+    readme.show();
+  }
   <% elsif position == 2 %>
-  $("#toggle_readme_block").insertBefore(".other-formats:first")
-  $("#readme_at_repo_dir").insertBefore(".other-formats:first")
+  var elem = $(".other-formats:first");
+  if (elem.length > 0) {
+    var readme = $("#readme_at_repo")
+    readme.insertBefore(elem);
+    readme.show();
+  }
   <% end %>
   $("#toggle_readme_block").click(function(){
     $("#readme_at_repo_dir").toggle(500);
